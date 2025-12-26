@@ -39,6 +39,7 @@
     "globals": "^16.5.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17",
+    "@vercel/node": "^3.2.20",
     "tsx": "^4.19.2",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
