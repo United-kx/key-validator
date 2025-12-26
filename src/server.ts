@@ -1,6 +1,7 @@
 import { config as loadEnv } from 'dotenv';
 import cors from 'cors';
-import express, { Request, Response, NextFunction } from 'express';
+import express from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import helmet from 'helmet';
 import { createClient } from '@supabase/supabase-js';
 import crypto from 'node:crypto';
