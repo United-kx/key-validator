@@ -11,6 +11,8 @@ loadEnv();
 
 const app = express();
 
+export default app;
+
 const PORT = Number(process.env.PORT ?? 4000);
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -273,6 +275,10 @@ app.use((error: unknown, _req: Request, res: Response, _next: NextFunction) => {
   res.status(status).json({ ok: false, message });
 });
 
-app.listen(PORT, () => {
-  console.log(`[key-validator] listening on port ${PORT}`);
-});
+const isServerlessEnvironment = process.env.VERCEL === '1';
+
+if (!isServerlessEnvironment) {
+  app.listen(PORT, () => {
+    console.log(`[key-validator] listening on port ${PORT}`);
+  });
+}
